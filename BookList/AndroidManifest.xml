@@ -22,6 +22,11 @@
             android:name="com.iteralab.booklist.BookDetailsActivity"
             android:label="@string/title_activity_book_details" >
         </activity>
+
+        <provider
+            android:name="com.iteralab.db.BookProvider"
+            android:authorities="com.iteralab.db.bookprovider" >
+        </provider>
     </application>
 
 </manifest>

@@ -12,20 +12,18 @@ import android.os.Parcelable;
  * 
  */
 public class Book implements Parcelable{
-	private String bookId;
 	private String name;
 	private String author;
 	private boolean eVariantPresent;
 	private String genre;
 	private Date publishDate;
 
-	public Book() {
-
+	public Book(){
+		
 	}
 
 	public Book(String bookId, String name, String author,
 			boolean eVariantPresent, String genre, Date publishDate) {
-		this.bookId = bookId;
 		this.name = name;
 		this.author = author;
 		this.eVariantPresent = eVariantPresent;
@@ -33,13 +31,6 @@ public class Book implements Parcelable{
 		this.publishDate = publishDate;
 	}
 
-	public String getBookId() {
-		return bookId;
-	}
-
-	public void setBookId(String bookId) {
-		this.bookId = bookId;
-	}
 
 	public String getName() {
 		return name;
@@ -96,12 +87,11 @@ public class Book implements Parcelable{
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeString(bookId);
 		dest.writeString(name);
 		dest.writeString(author);
 		dest.writeBooleanArray(new boolean[]{eVariantPresent});
 		dest.writeString(genre);
-		dest.writeString(BookListHelper.convertDateToString(publishDate));
+		dest.writeString(BookListUtils.convertDateToString(publishDate));
 
 		
 	}
@@ -121,14 +111,13 @@ public class Book implements Parcelable{
 	};
 	
 	private Book(Parcel in){
-		this.bookId=in.readString();
 		this.name=in.readString();
 		this.author=in.readString();
 		boolean[] booleanArray=new boolean[1];
 		in.readBooleanArray(booleanArray);
 		this.eVariantPresent=booleanArray[0];
 		this.genre=in.readString();
-		this.publishDate=BookListHelper.convertStringToDate(in.readString());
+		this.publishDate=BookListUtils.convertStringToDate(in.readString());
 		
 	}
 }

@@ -2,9 +2,17 @@
 <resources>
 
     <string name="app_name">BookList</string>
-    <string name="list_title">Books</string>
+    <string name="list_title">B o o k s</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_book_details">BookDetailsActivity</string>
+    <string name="name">Name</string>
+    <string name="author">Author</string>
+    <string name="electronic_variant">Electronic variant</string>
+    <string name="genre">Genre</string>
+    <string name="publish_date">Publish date</string>
+    <string name="add">Add</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
 
 </resources>
