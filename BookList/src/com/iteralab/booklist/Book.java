@@ -11,19 +11,21 @@ import android.os.Parcelable;
  * @author TOSHIBA
  * 
  */
-public class Book implements Parcelable{
+public class Book implements Parcelable {
+	private int bookId;
 	private String name;
 	private String author;
 	private boolean eVariantPresent;
 	private String genre;
 	private Date publishDate;
 
-	public Book(){
-		
+	public Book() {
+
 	}
 
-	public Book(String bookId, String name, String author,
+	public Book(int bookId, String name, String author,
 			boolean eVariantPresent, String genre, Date publishDate) {
+		this.bookId = bookId;
 		this.name = name;
 		this.author = author;
 		this.eVariantPresent = eVariantPresent;
@@ -31,6 +33,13 @@ public class Book implements Parcelable{
 		this.publishDate = publishDate;
 	}
 
+	public int getBookId() {
+		return bookId;
+	}
+
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
+	}
 
 	public String getName() {
 		return name;
@@ -40,14 +49,14 @@ public class Book implements Parcelable{
 		this.name = name;
 	}
 
-	
-	public boolean getEVariantPresent(){
+	public boolean getEVariantPresent() {
 		return eVariantPresent;
 	}
-	
-	public void setEVariantPresent(boolean eVariantPresent){
-		this.eVariantPresent=eVariantPresent;
+
+	public void setEVariantPresent(boolean eVariantPresent) {
+		this.eVariantPresent = eVariantPresent;
 	}
+
 	public String getAuthor() {
 		return author;
 	}
@@ -87,16 +96,16 @@ public class Book implements Parcelable{
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeInt(bookId);
 		dest.writeString(name);
 		dest.writeString(author);
-		dest.writeBooleanArray(new boolean[]{eVariantPresent});
+		dest.writeBooleanArray(new boolean[] { eVariantPresent });
 		dest.writeString(genre);
 		dest.writeString(BookListUtils.convertDateToString(publishDate));
 
-		
 	}
 
-	public static final Parcelable.Creator<Book> CREATOR=new Parcelable.Creator<Book>(){
+	public static final Parcelable.Creator<Book> CREATOR = new Parcelable.Creator<Book>() {
 
 		@Override
 		public Book createFromParcel(Parcel source) {
@@ -107,17 +116,18 @@ public class Book implements Parcelable{
 		public Book[] newArray(int size) {
 			return new Book[size];
 		}
-		
+
 	};
-	
-	private Book(Parcel in){
-		this.name=in.readString();
-		this.author=in.readString();
-		boolean[] booleanArray=new boolean[1];
+
+	private Book(Parcel in) {
+		this.bookId = in.readInt();
+		this.name = in.readString();
+		this.author = in.readString();
+		boolean[] booleanArray = new boolean[1];
 		in.readBooleanArray(booleanArray);
-		this.eVariantPresent=booleanArray[0];
-		this.genre=in.readString();
-		this.publishDate=BookListUtils.convertStringToDate(in.readString());
-		
+		this.eVariantPresent = booleanArray[0];
+		this.genre = in.readString();
+		this.publishDate = BookListUtils.convertStringToDate(in.readString());
+
 	}
 }

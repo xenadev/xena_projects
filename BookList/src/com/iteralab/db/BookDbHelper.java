@@ -12,16 +12,18 @@ import android.util.Log;
 public class BookDbHelper extends SQLiteOpenHelper implements BaseColumns {
 	private final String TAG = BookDbHelper.class.getSimpleName();
 	public static final String DB_BOOKS = "books.db";
+
 	public static final String TABLE_NAME = "books";
+	public static final String BOOK_ID="_id";
 	public static final String NAME = "name";
 	public static final String AUTHOR = "author";
 	public static final String EVARIANT = "e_variant";
 	public static final String GENRE = "genre";
 	public static final String PUBLISH_DATE = "publish_date";
-	public static final int DB_VERSION = 2;
+	public static final int DB_VERSION = 7;
 
 	private static final String CREATE_TABLE_QUERY = "CREATE TABLE "
-			+ TABLE_NAME + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME
+			+ TABLE_NAME + " ("+BOOK_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME
 			+ " TEXT, " + AUTHOR + " TEXT, " + EVARIANT + " INTEGER, " + GENRE
 			+ " TEXT, " + PUBLISH_DATE + " TEXT);";
 
@@ -62,7 +64,7 @@ public class BookDbHelper extends SQLiteOpenHelper implements BaseColumns {
 
 		db.insert(TABLE_NAME, NAME, values);
 
-		values.put(NAME, "97 Things Every programmer should know");
+		values.put(NAME, "97 Things Every programmer should know know know know know");
 		values.put(AUTHOR, "Nill Ford");
 		values.put(EVARIANT, 0);
 		values.put(GENRE, BookGenre.STUDY.getValue());

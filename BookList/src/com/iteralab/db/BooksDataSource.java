@@ -13,15 +13,28 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 public class BooksDataSource {
-	private final String TAG = BooksDataSource.class.getSimpleName();
+	private static final String TAG = BooksDataSource.class.getSimpleName();
 	private SQLiteDatabase database;
 	private BookDbHelper dbHelper;
-	private String[] allColumns = { BookDbHelper.NAME, BookDbHelper.AUTHOR,
-			BookDbHelper.EVARIANT, BookDbHelper.GENRE,
+	private String[] allColumns = { BookDbHelper.BOOK_ID, BookDbHelper.NAME,
+			BookDbHelper.AUTHOR, BookDbHelper.EVARIANT, BookDbHelper.GENRE,
 			BookDbHelper.PUBLISH_DATE };
 
-	public BooksDataSource(Context context) {
+	private static BooksDataSource instance;
+
+	private BooksDataSource(Context context) {
 		dbHelper = new BookDbHelper(context);
+	}
+
+	public static BooksDataSource getInstance(Context context) {
+		if (instance == null) {
+			instance = new BooksDataSource(context);
+			Log.i(TAG, "New data source created.");
+		} else {
+			Log.i(TAG, "Data source already exists.");
+		}
+
+		return instance;
 	}
 
 	public void open() throws SQLException {
@@ -48,14 +61,22 @@ public class BooksDataSource {
 		return books;
 	}
 
+	public int deleteBook(Book book) {
+		int id = book.getBookId();
+		int rowsAffected = database.delete(BookDbHelper.TABLE_NAME,
+				BookDbHelper.BOOK_ID + " = " + id, null);
+		return rowsAffected;
+	}
+
 	private Book cursorToBook(Cursor cursor) {
 		Book book = new Book();
-		book.setName(cursor.getString(0));
-		book.setAuthor(cursor.getString(1));
-		book.setEVariantPresent((cursor.getInt(2) == 1) ? true : false);
-		book.setGenre(cursor.getString(3));
+		book.setBookId(cursor.getInt(0));
+		book.setName(cursor.getString(1));
+		book.setAuthor(cursor.getString(2));
+		book.setEVariantPresent((cursor.getInt(3) == 1) ? true : false);
+		book.setGenre(cursor.getString(4));
 		book.setPublishDate(BookListUtils.convertStringToDate(cursor
-				.getString(4)));
+				.getString(5)));
 		return book;
 	}
 

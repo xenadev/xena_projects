@@ -1,0 +1,117 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookEditActivity" >
+
+    <TextView
+        android:id="@+id/back_to_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="@string/list_title"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/ok_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/ok"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/cancel_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/cancel"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/name_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/back_to_list"
+        android:layout_marginTop="20dp"
+        android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/author_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/name_title"
+        android:layout_marginTop="20dp"
+        android:text="@string/author" />
+
+    <CheckBox
+        android:id="@+id/evarient_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/author_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/electronic_variant"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/genre_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/evarient_checkbox"
+        android:layout_marginTop="20dp"
+        android:text="@string/genre" />
+
+    <TextView
+        android:id="@+id/publish_date_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/genre_title"
+        android:layout_marginTop="20dp"
+        android:text="@string/publish_date" />
+
+     <EditText
+         android:id="@+id/name_edit"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/name_title"
+         android:layout_alignBottom="@+id/name_title"
+         android:layout_alignLeft="@+id/author_edit"
+         android:layout_alignRight="@+id/author_edit"
+         android:hint="@string/name_hint"
+         android:textSize="14sp" >
+
+     </EditText>
+
+      <EditText
+          android:id="@+id/publish_edit"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBaseline="@+id/publish_date_title"
+          android:layout_alignBottom="@+id/publish_date_title"
+          android:layout_alignLeft="@+id/author_edit"
+          android:hint="@string/publish_date_hint"
+          android:textSize="14sp" >
+
+      </EditText>
+
+      <EditText
+          android:id="@+id/author_edit"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBaseline="@+id/author_title"
+          android:layout_alignBottom="@+id/author_title"
+          android:layout_alignLeft="@+id/back_to_list"
+          android:ems="10"
+          android:hint="@string/author_hint"
+          android:textSize="14sp" />
+
+</RelativeLayout>

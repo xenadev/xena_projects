@@ -29,12 +29,11 @@ public class BookItemAdapter extends BaseAdapter {
 		this.context = context;
 		this.dataSource = dataSource;
 		books = new ArrayList<Book>();
-		refreshItems();
 	}
 
 	public void refreshItems() {
-		books = dataSource.getAllBooks();		
-		this.notifyDataSetChanged();
+		books = dataSource.getAllBooks();	
+		notifyDataSetChanged();
 	}
 
 	@Override

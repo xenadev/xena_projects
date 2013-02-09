@@ -22,18 +22,22 @@ public class BookListActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-
-		dataSource = new BooksDataSource(this);
-		dataSource.open();
-
-		Log.i(TAG, "Datasource created: " + String.valueOf(dataSource != null));
+		Log.i(TAG, "onCreate");
 
 		booksGrid = (GridView) findViewById(R.id.books_grid);
+		booksGrid.setOnItemClickListener(bookItemClick);
+
+		dataSource = BooksDataSource.getInstance(getApplicationContext());
+	}
+
+	@Override
+	public void onStart() {
+		Log.i(TAG, "onStart");
+		super.onStart();
 		if (dataSource != null) {
+			dataSource.open();
 			showBooksGrid();
 		}
-
-		booksGrid.setOnItemClickListener(bookItemClick);
 
 	}
 
@@ -41,11 +45,10 @@ public class BookListActivity extends Activity {
 	 * Updates books grid.
 	 */
 	private void showBooksGrid() {
-		if (booksGrid.getAdapter() == null) {
-			BookItemAdapter adapter = new BookItemAdapter(
-					this.getApplicationContext(), dataSource);
-			booksGrid.setAdapter(adapter);
-		}
+		BookItemAdapter adapter = new BookItemAdapter(
+				this.getApplicationContext(), dataSource);
+		booksGrid.setAdapter(adapter);
+
 		((BookItemAdapter) booksGrid.getAdapter()).refreshItems();
 	}
 
@@ -83,7 +86,9 @@ public class BookListActivity extends Activity {
 
 	@Override
 	public void onPause() {
-		dataSource.close();
+		if (dataSource != null) {
+			dataSource.close();
+		}
 		super.onPause();
 	}
 

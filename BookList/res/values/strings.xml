@@ -14,5 +14,11 @@
     <string name="add">Add</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="title_activity_book_edit">BookEditActivity</string>
+    <string name="name_hint">Enter book name</string>
+    <string name="author_hint">Enter author name</string>
+    <string name="publish_date_hint">Publish date</string>
 
 </resources>
