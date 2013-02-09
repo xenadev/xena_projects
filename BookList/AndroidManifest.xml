@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.iteralab.booklist"
+    package="com.kseniya.booklist"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -10,7 +10,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name="com.iteralab.booklist.BookListActivity"
+            android:name=".booklist.BookListActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,17 +19,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.iteralab.booklist.BookDetailsActivity"
+            android:name=".booklist.BookDetailsActivity"
             android:label="@string/title_activity_book_details" >
         </activity>
         
         <activity
-            android:name="com.iteralab.booklist.BookEditActivity"
+            android:name=".booklist.BookEditActivity"
             android:label="@string/title_activity_book_edit" >
         </activity>
 
         <provider
-            android:name="com.iteralab.db.BookProvider"
+            android:name=".db.BookProvider"
             android:authorities="com.iteralab.db.bookprovider" >
         </provider>
 

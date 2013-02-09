@@ -1,6 +1,7 @@
-package com.iteralab.booklist;
+package com.kseniya.booklist;
 
-import com.iteralab.db.BooksDataSource;
+
+import com.kseniya.db.BooksDataSource;
 
 import android.app.Activity;
 import android.app.AlertDialog;

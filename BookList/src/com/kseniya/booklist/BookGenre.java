@@ -1,4 +1,4 @@
-package com.iteralab.booklist;
+package com.kseniya.booklist;
 
 public enum BookGenre {
 	STUDY("Study"), FICTION("Fiction"), SCIENCE("Science"), DETECTIVE(

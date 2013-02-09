@@ -1,4 +1,4 @@
-package com.iteralab.booklist;
+package com.kseniya.booklist;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

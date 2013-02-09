@@ -1,6 +1,6 @@
-package com.iteralab.db;
+package com.kseniya.db;
 
-import com.iteralab.booklist.BookGenre;
+import com.kseniya.booklist.BookGenre;
 
 import android.content.ContentValues;
 import android.content.Context;

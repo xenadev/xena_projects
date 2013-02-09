@@ -1,4 +1,4 @@
-package com.iteralab.db;
+package com.kseniya.db;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;

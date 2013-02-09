@@ -1,4 +1,4 @@
-package com.iteralab.booklist;
+package com.kseniya.booklist;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,7 +10,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.iteralab.db.BooksDataSource;
+
+import com.kseniya.db.BooksDataSource;
 
 public class BookListActivity extends Activity {
 	private final String TAG = BookListActivity.class.getSimpleName();

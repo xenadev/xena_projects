@@ -1,10 +1,10 @@
-package com.iteralab.db;
+package com.kseniya.db;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.iteralab.booklist.Book;
-import com.iteralab.booklist.BookListUtils;
+import com.kseniya.booklist.Book;
+import com.kseniya.booklist.BookListUtils;
 
 import android.content.Context;
 import android.database.Cursor;
